@@ -1,7 +1,8 @@
+hello World
 int number;
 string order;
 string num;
-ing adress;
+int adress;
 string hello;
 
 
