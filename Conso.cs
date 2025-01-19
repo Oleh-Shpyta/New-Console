@@ -3,8 +3,8 @@ char[] display = new string('_', game.Length).ToCharArray();
 int wrong = 0;
 int maxWrong = 6;
 
-Console.WriteLine("Гра \"Шибениця\"");
-Console.WriteLine($"Слово має {game.Length} літер. У вас є {maxWrong} спроб.\n");
+Console.WriteLine("Гра");
+Console.WriteLine($"Словр має {game.Length} літер. У вас є {maxWrong} спроб.\n");
 
 while (wrong < maxWrong)
 {
@@ -34,13 +34,13 @@ while (wrong < maxWrong)
         if (new string(display) == game)
         {
             Console.WriteLine("\nВи виграли!");
-            Console.WriteLine($"Слово: {game}");
+            Console.WriteLine($"ССлово: {game}");
             break;
         }
     }
     else
     {
-        Console.WriteLine("Будь ласка, введіть лише одну літеру.");
+        Console.WriteLine("Введіть лише одну літеру: ");
     }
 }
 if (wrong >= maxWrong)
