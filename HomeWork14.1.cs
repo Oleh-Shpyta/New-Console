@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 
 class Program
 {
@@ -6,14 +6,14 @@ class Program
     {
         try
         {
-            Account account = new Account("Основний рахунок: ", 100);
+            Account account = new Account("РћСЃРЅРѕРІРЅРёР№ СЂР°С…СѓРЅРѕРє: ", 100);
             account.Deposit(100);
             account.Whithdraw(50);
-            Console.WriteLine($"Поточний баланс : {account.GetBalance()}");
+            Console.WriteLine($"РџРѕС‚РѕС‡РЅРёР№ Р±Р°Р»Р°РЅСЃ : {account.GetBalance()}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Помилка {ex.Message}");
+            Console.WriteLine($"РџРѕРјРёР»РєР° {ex.Message}");
         }
     }
 }
@@ -26,11 +26,11 @@ public class Account
     {
         if (string.IsNullOrEmpty(name))
         {
-            throw new ArgumentNullException("Назва рахунке не повинна бути порожньою.");
+            throw new ArgumentNullException("РќР°Р·РІР° СЂР°С…СѓРЅРєРµ РЅРµ РїРѕРІРёРЅРЅР° Р±СѓС‚Рё РїРѕСЂРѕР¶РЅСЊРѕСЋ.");
         }
         if (initialbalance < 0)
         {
-            throw new ArgumentNullException("Початкова сума не може бути від'ємною");
+            throw new ArgumentNullException("РџРѕС‡Р°С‚РєРѕРІР° СЃСѓРјР° РЅРµ РјРѕР¶Рµ Р±СѓС‚Рё РІС–Рґ'С”РјРЅРѕСЋ");
         }
         Name = name;
         balance = initialbalance;
@@ -43,22 +43,22 @@ public class Account
     {
         if (money <= 0)
         {
-            throw new ArgumentException("Сума повина бути більша за 0!");
+            throw new ArgumentException("РЎСѓРјР° РїРѕРІРёРЅР° Р±СѓС‚Рё Р±С–Р»СЊС€Р° Р·Р° 0!");
         }
         balance += money;
-        Console.WriteLine($"На {Name} додано {money}грн. Поточний баланс: {balance}грн.");
+        Console.WriteLine($"РќР° {Name} РґРѕРґР°РЅРѕ {money}РіСЂРЅ. РџРѕС‚РѕС‡РЅРёР№ Р±Р°Р»Р°РЅСЃ: {balance}РіСЂРЅ.");
     }
     public void Whithdraw(decimal money)
     {
         if (money <= 0)
         {
-            throw new ArgumentException("Сума повинна бути більшою за 0!");
+            throw new ArgumentException("РЎСѓРјР° РїРѕРІРёРЅРЅР° Р±СѓС‚Рё Р±С–Р»СЊС€РѕСЋ Р·Р° 0!");
         }
         if (money > balance)
         {
-            throw new InvalidOperationException("Недостатньо коштів на рахунку!");
+            throw new InvalidOperationException("РќРµРґРѕСЃС‚Р°С‚РЅСЊРѕ РєРѕС€С‚С–РІ РЅР° СЂР°С…СѓРЅРєСѓ!");
         }
         balance -= money;
-        Console.WriteLine($"З {Name} знято {money}грн. Поточний баланс: {balance}грн.");
+        Console.WriteLine($"Р— {Name} Р·РЅСЏС‚Рѕ {money}РіСЂРЅ. РџРѕС‚РѕС‡РЅРёР№ Р±Р°Р»Р°РЅСЃ: {balance}РіСЂРЅ.");
     }
 }
